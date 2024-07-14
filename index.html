@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head> <!-- O head aloca tudo de informação para o broweser, como: -->
+       	       <!-- meta, title, css(style) -->
+		<meta charset='UTF-8'/>
+		<meta name="author" content="Talys Safady}sigla{">
+		<meta name="description" content="Site feito para o intuito de compartilhar experiências usando shell scripts, assim mostrando o quanto poderoso pode ser uma ferramenta bem estruturada, basta usar a imaginação. Aqui encontrara artigos sobre o mundo linux, ideias de como começar no mundo linux e scripts feita pelo autor.">
+		<meta name="keywords" content="linux, sigla, shell script, bash, free software">
+		<link rel="icon" href="img/favicon.png">
+		<!--	<meta name="viewport" content="width=device-width, initial-scale=1.0"> --> <!-- Meta para ajudar na responsividade #== content vai ajudar na largura do site ==# o #== initial-scale vai regular o zoom ==# -->
+		<title><Sigla></title> <!-- O titulo é usado para cadastrar do lado do icone -->
+	<!-- <link rel="stylesheet" type="text/css" href="caminho/da/pasta/.css"> Desta forma que usa quando precisa realizar o css em outro diretorio  assim removendo o css daqui para pegar global quendo tiver outras pagenas html-->
+		<!-- A TAG com css permite da vida para o website -->	
+  		<style> 
+			@font-face{ font-family: Courier-Prime; /* Desta forma que trazemos */
+				    src: url(fonte/CourierPrime-Bold.ttf);
+				  }
+			body{ background-color: #A9A9A9; 
+			      font-family: Courier-Prime, monospace;
+			    }
+			.titulo{ background-color: black;
+				 color: #32CD32;
+				 text-align: center;
+				 padding: 10px; /* Ajusta o tamanho do bloco INTERNAMENTE, pode ver mais em */
+				 border: 5px solid #32CD32; /* Acrescenta borda na caixa do bloco e cor */
+			       }
+			nav{/* position: fixed; Posso estar usando quando precisar deixar o menur fixo em quanto abaixa o scrool */                 
+			       font-size: 19px;
+			       color: #32CD32; /* Cor na letra do bloco */
+			       text-align: center; /* Mantem o texto centralizado */
+			       padding: 5px; /* tamanho da caixa que o dado fica dentro*/
+			   }
+			nav a{ display: inline-block; /* É usado para conseguir manpular cada elemento, quando não usado não consegue manipular cada elemento. */
+			       background: #708090; /* Colorindo cada bloco do elemento. */
+			       width: 200px; /* Almenta o tamnaho do bloco na orizontal. */
+			       height: 25px; /* Almenta o tamanho do bloco na vertical. */
+	                       text-decoration: none; /* Retira o anderlane de todo texto*/
+			     }
+			/* Esta TAG conseguimos colocar animação quando passado o mouser na letra. */
+			nav a:hover{ color: #32CD32;
+				     text-shadow: 1.2px 1.2px 13px yellow; /* O nome já diz texto de sombra acrescenta sombra no texto*/
+			           }
+			.imgtopo{ /* Pode esta utilizando o max-width o só o width*/
+				}
+
+			.rodape{ background-color: black;
+				color: #32CD32;
+				text-align: center;
+				padding: 0.50%;
+				margin-top: 50%;
+			      }
+			#conteudo{ background-color: #A9A9A9;
+				   max-width: 80%;
+				   margin: auto;
+				   font-size: 19px;
+				 }
+
+		 	.dis{ color: #4169E1;
+			  }
+			.you{ color: red;
+			     }
+			.con{ color: white;
+			    }
+			.git{ color: grey;
+			    }
+			.twi{ color: #8A2BE2; 
+			    }
+			.frase{ padding-top: 3%;
+			      }
+		</style>
+	</head>
+<body>
+	<!-- Para saber mais como estruturar a div. Documento na pasta #== div/te.txt ==# -->
+<div class="titulo">
+	<hgroup> <!-- A TAG faz um agrupamento de titulos para melhor entendimeto para o website -->
+		<h3>Tudo que você precisa é</h3>
+		<h1>#!/bin/bash</h1>
+	</hgroup>
+</div>
+<!-- Menu principal -->
+<nav> <!-- TAG para uso de navegação para menus -->
+	<a href="index.html">Inicio</a>
+	<a href="#sobre">Sobre</a>
+	<a href="#scripts">Scripts</a>
+</nav>
+
+<div id="conteudo"> <!-- Bloco do conteudo -->
+	<center> <!-- TAG orienta o que estiver dentro, deixa centralizado -->
+		<img class="imgtopo" src="img/pinguim-aventureiro.png" alt="Pinguins de madagascar" title="pinguins-madagascar.png">
+	</center>
+<h3 id="sobre">Sobre</h3>
+<p>     <!-- A TAG é usado para criar um paragrafo -->
+Seja bem vindo ao website.
+
+<hr>
+
+<h3 id="scripts">Scripts</h3>
+
+	<section style="border: 3px solid black; padding: 1%; padding-top: 1%; margin-top: 4rem; background-color: white;">
+            <h3>Calculo para descobrir a porcetagem entre dois valores.</h3>
+            <div>
+		    
+		    <code><pre style="background-color: #D3D3D3; box-shadow: 2px 2px 5px black; border-radius: 30px;">
+ #!/bin/bash
+
+# Boas vindas!
+echo "O programa foi criado para descobrir qual é a diferença da porcentagem entre os valores passados
+Exemplo visual;
+|=====================================================|
+| (valor-inicial + valor-porcento) - y% = valor-final |
+|=====================================================|
+"
+
+# Define os valores iniciais
+echo "Informa o valor inicial ?"
+read  valor_inicial
+echo
+echo "Informa o valor da % do valor inicial ?"
+read percentual_acrescimo
+echo
+echo "Informa o valor final, assim descobrindo o valor da diferença de % ?"
+read valor_final
+
+# Calcula o valor com o acréscimo percentual junto com a calculadora avançada bc.
+# O -l aplica as casas decimais com precisão no resultado.
+valor_acrescimo=$(echo "$valor_inicial * $percentual_acrescimo / 100" | bc -l)
+valor_com_acrescimo=$(echo "$valor_inicial + $valor_acrescimo" | bc -l)
+
+echo "Valor inicial: $valor_inicial"
+echo "Percentual de acréscimo: $percentual_acrescimo%"
+echo "Valor com acréscimo: $valor_com_acrescimo"
+
+# Calcula o percentual de desconto aplicado para chegar ao valor final
+percentual_desconto=$(echo "($valor_com_acrescimo - $valor_final) * 100 / $valor_com_acrescimo" | bc -l)
+
+echo "Valor final desejado: $valor_final"
+echo "Percentual de desconto aplicado: $percentual_desconto%"               
+		</code></pre>
+            </div>
+        </section>
+
+	<section style="border: 3px solid black; padding: 1%; padding-top: 1%; margin-top: 4rem; background-color: white;">
+            <h3>Ajuda para finança simples.</h3>
+            <div>
+		    <code><pre style="background-color: #D3D3D3; box-shadow: 2px 2px 5px black; border-radius: 30px;">
+#!/usr/bin/env bash
+
+# Função para editar o mês
+editar_mes() {
+    echo "Qual é mês que deseja editar?"
+    ls /home/sigla/Finanças
+    read mes
+    if [ -f "/home/sigla/Finanças/$mes" ]; then
+        vim /home/sigla/Finanças/$mes
+    else
+        echo "Mês não encontrado!"
+    fi
+}
+
+# Função para criar um mês
+criar_mes() {
+    total=0
+
+    echo "Qual é o mês que deseja criar?"
+    read novo_mes
+
+    # Verifica se o mês já existe
+    if [ -f "/home/sigla/Finanças/$novo_mes" ]; then
+        echo "O mês já existe! Escolha outro nome."
+    else
+        echo "$novo_mes foi criado com sucesso!"
+        break
+    fi
+  read -p "Qual é o valor do ganho? " ganho
+
+    echo "Vamos informar as despesas"
+    while true; do
+        read -p "Digite a categoria (ou 'sair' para terminar): " categoria
+        if [[ "$categoria" == "sair" ]]; then
+            break
+        fi
+        read -p "Digite o valor da categoria: " valor
+
+        # Validação para garantir que o valor é um número
+        if ! [[ "$valor" =~ ^[0-9]+$ ]]; then
+            echo "Valor inválido, por favor insira um número."
+            continue
+        fi
+
+        total=$((total + valor))
+    done
+
+    echo "A soma total das despesas é: $total"
+    echo "Seu ganho é: $ganho"
+    echo "Seu saldo final é: $((ganho - total))"
+}
+
+# Menu do programa
+echo "Bem-vindo à ajuda de sua finança."
+echo "Favor escolha a opção desejada.
+
+while true; do
+    echo "|=========================================|"
+    echo "|                                         |"
+    echo "|  1. Deseja editar um mês já existente.  |"
+    echo "|  2. Criar um novo mês.                  |"
+    echo "|  3. Sair do programa.                   |"
+    echo "|                                         |"
+    echo "|=========================================|"
+read opcao
+
+    case $opcao in
+        1)
+            editar_mes
+            ;;
+        2)
+            criar_mes
+            ;;
+        3)
+            echo
+            echo "Saindo do programa..."
+            sleep 1
+            exit
+            ;;
+        *)
+            echo "Opção inválida, tente novamente"
+            echo
+            ;;
+    esac
+    echo
+done
+		</code></pre>
+            </div>
+        </section>
+
+</div> <!-- DIV do conteudo -->
+
+<!-- Rodapé -->
+<!-- TAG responsável para anexar no rodapé-->
+<div class="rodape">
+	<table style="width: 100%;"> <!-- tabela -->
+		<tr> <!-- linha para para as colunas -->
+			<th class="con">Contato</th> <!-- TH é tipo de formato de coluna deixa mais vivo assim diferenciando para modelo de cabeçalho para o td por exemplo -->
+			<th class="you">Youtube</th>
+			<th class="dis">Discord</th>
+			<th class="twi">Twitch</th>
+			<th class="git">GitHub</th> 
+
+		</tr>
+		<tr>
+			<!-- o href permite colocar o email como interação em cima do link como mostra a imagem na pasta #== apr/href.png ==# -->
+			<td><a href="mailto:ts.sigla@gmail.com">ts.sigla@gmail.com</a></td> <!-- O TD é uma coluna só que mais simples que o TH. -->
+			<td>https://www.youtube.com/@-Sigla-</td>
+			<td>-?-</td>
+			<td>https://www.twitch.tv/osigla</td>
+			<td>https://github.com/tsigla</td>
+	</table>
+	
+	<p class="frase">
+	A menos que você não se importe de montão, nada vai melhorar. Não vai não.
+	</p> 
+</div> <!-- DIV do rodape -->
+	
+</body>
+</html>
+
+

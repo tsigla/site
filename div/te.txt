@@ -1,0 +1,31 @@
+DIV: Tipo 1:
+	id 	 : ÚNICO
+	class:	 : VÁRIOS
+
+Class = chamada com o começo em ponto     = .nome{ atributos; }
+Id    = Chamada com o começo em cerquilha =  #nome{ atributo; }
+
+Padding
+Propósito: 
+O padding é usado para criar espaço dentro de um elemento, entre o conteúdo do elemento e sua borda.
+
+Comportamento: 
+O padding afeta o tamanho total do elemento. Se você adicionar padding, o tamanho do elemento aumentará, pois o espaço interno é adicionado dentro das bordas do elemento. 
+
+	padding:        XXpx; = Espande total
+	padding-top:    XXpx: = Espande para cima
+	padding-bottom: XXpx; = Espande para baixo
+	padding-right:  XXpx; = Espande para direita
+	padding-left:   XXpx; = Espande para esquerda
+Margin
+Propósito: 
+A margin é usada para criar espaço fora de um elemento, entre a borda do elemento e os elementos vizinhos.
+
+Comportamento: 
+A margin não afeta o tamanho total do elemento em termos de largura e altura do conteúdo, mas afeta o espaçamento ao redor do elemento.
+
+	margin:        XXpx; = Espande total
+	margin-top:    XXpx: = Espande para cima
+	margin-bottom: XXpx; = Espande para baixo
+	margin-right:  XXpx; = Espande para direita
+	margin-left:   XXpx; = Espande para esquerda
